@@ -1,0 +1,15 @@
+{
+  "source_directory": "C:\\Users\\SHADOWORBS\\Downloads",
+  "enable_notifications": true,
+  "category_mappings": {
+    "Images": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".tiff", ".webp", ".svg", ".heic", ".ico", ".avif", ".raw", ".psd", ".ai", ".eps",  ".indd", ".ps", ".epsf", ".svgz", ".tga", ".exr", ".dng",  ".cr2", ".nef", ".orf", ".sr2",  ".jxl", ".heif",  ".jpe", ".jfif"],
+    "Documents": [".pdf", ".docx", ".doc", ".txt", ".xlsx", ".xls", ".pptx", ".ppt", ".odt", ".rtf", "xlsm", ".csv", ".md", ".epub", ".mobi", ".azw3", ".pages", ".key", ".numbers", ".txtx", ".log"],
+    "Compressed": [".zip", ".rar", ".7z", ".tar", ".gz", ".iso", ".tar.gz", ".tar.bz2", ".zip.x", ".rar.x"],
+    "Programs": [".exe", ".msi"],
+    "Audio": [".mp3", ".wav", ".flac", ".aac", ".ogg", ".m4a", ".wma", ".opus", ".aiff", ".alac"],
+    "Videos": [".mp4", ".mkv", ".avi", ".mov", ".wmv", ".flv", ".webm", ".mpeg", ".mpg", ".3gp", ".m4v", ".ts", ".vob"],
+    "Code": [".py", ".js", ".java", ".c", ".cpp", ".cs", ".php", ".html", "htm", ".css", ".rb", ".go", ".swift", ".ts", ".json", ".xml", ".yaml", ".yml"]
+  },
+  "custom_rules": [
+  ]
+}

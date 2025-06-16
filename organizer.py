@@ -1,6 +1,7 @@
 import json
 import logging
 import argparse
+import os
 import pathlib
 import shutil
 from datetime import datetime
@@ -71,7 +72,8 @@ def main():
 
     setup_logging()
 
-    config = load_config(args.config)
+    cfg_path = "Settings/config.json" if os.path.exists("Settings/config.json") else args.config
+    config = load_config(cfg_path)
     if not config:
         return
 
@@ -93,11 +95,11 @@ def main():
             destination_folder_name = None
             
             # 1. Check custom rules by keyword
-            for rule in custom_rules:
-                if rule['keyword'].lower() in file_path.name.lower():
-                    destination_folder_name = rule['destination']
-                    logging.info(f"Matched custom rule for '{file_path.name}' with keyword '{rule['keyword']}'.")
-                    break
+            # for rule in custom_rules:
+            #     if rule['keyword'].lower() in file_path.name.lower():
+            #         destination_folder_name = rule['destination']
+            #         logging.info(f"Matched custom rule for '{file_path.name}' with keyword '{rule['keyword']}'.")
+            #         break
             
             # 2. If no custom rule, check by extension
             if not destination_folder_name:
@@ -116,18 +118,18 @@ def main():
                     if not destination_path.exists():
                         if not args.dry_run:
                             destination_path.mkdir(parents=True)
-                        logging.info(f"{'DRY RUN: ' if args.dry_run else ''}Created directory: '{destination_path}'")
+                        logging.info(f"{'DRY RUN: ' if args.dry_run else ''}Created directory: [{destination_path}]")
 
                     final_destination = destination_path / file_path.name
                     
                     if final_destination.exists():
                         final_destination = handle_collision(destination_path, file_path)
-                        logging.warning(f"Name collision for '{file_path.name}'. Will move to '{final_destination.name}'.")
+                        logging.warning(f"Name collision for [{file_path.name}] Will move to [{final_destination.name}]")
 
                     if not args.dry_run:
                         shutil.move(str(file_path), str(final_destination))
                     
-                    logging.info(f"{'DRY RUN: ' if args.dry_run else ''}Moved '{file_path.name}' to '{destination_folder_name}'")
+                    logging.info(f"{'DRY RUN: ' if args.dry_run else ''}Moved [{file_path.name}] to [{destination_folder_name}]")
                     moved_files_count += 1
 
                 except PermissionError:

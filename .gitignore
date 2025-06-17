@@ -9,5 +9,6 @@ wheels/
 # Virtual environments
 .venv
 
-# ohers
+# others
 *.log
+Settings/my.json
